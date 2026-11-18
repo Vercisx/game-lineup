@@ -1,0 +1,219 @@
+:root {
+  color-scheme: dark;
+  --page: #101115;
+  --panel: #1a1b23;
+  --line: #383946;
+  --ink: #f8f6ff;
+  --muted: #c3bfce;
+  --accent: #dcd3ff;
+  --accent-ink: #151124;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+img { display: block; width: 100%; }
+h1, h2, p, figure, dl, dd { margin: 0; }
+
+.shell { width: min(100% - 96px, 1160px); margin-inline: auto; }
+.skip-link {
+  position: fixed;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  padding: 12px;
+  background: var(--page);
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: none; }
+
+.site-header, .site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.site-header { min-height: 76px; border-bottom: 1px solid var(--line); }
+.site-footer { min-height: 98px; border-top: 1px solid var(--line); }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .105em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 34px); }
+nav a {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+}
+nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+
+.page-title {
+  margin-block: 46px 24px;
+  font-size: clamp(2.45rem, 6.5vw, 5.2rem);
+  font-weight: 780;
+  line-height: 1.01;
+  letter-spacing: -.075em;
+}
+.page-title span { color: var(--accent); }
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #1a1723;
+}
+.feature-copy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 23px;
+  min-height: 428px;
+  padding: clamp(30px, 4.6vw, 62px);
+  background: radial-gradient(ellipse at 0 100%, #32243f 0%, transparent 75%);
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font: 650 .72rem/1.1 "IBM Plex Mono", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+.status span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.feature-copy h2 {
+  font-size: clamp(2.9rem, 6.8vw, 5.6rem);
+  font-weight: 850;
+  line-height: .91;
+  letter-spacing: -.085em;
+}
+.summary {
+  max-width: 36ch;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: clamp(.98rem, 1.55vw, 1.12rem);
+  line-height: 1.55;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 44px;
+  padding: 10px 17px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: .9rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.button:hover { background: #ede7ff; }
+.feature-art { position: relative; min-height: 300px; background: #372939; }
+.feature-art img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center 37%; }
+.feature-art::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #1a172340, transparent 26%);
+  content: "";
+  pointer-events: none;
+}
+.game-facts {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.game-facts div { padding: 19px clamp(16px, 4.6vw, 62px) 22px; }
+.game-facts div + div { border-left: 1px solid var(--line); }
+.game-facts dt {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font: .72rem/1.3 "IBM Plex Mono", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+}
+.game-facts dd { font-size: 1.02rem; font-weight: 720; line-height: 1.3; }
+
+.details { margin-block: 74px 80px; scroll-margin-top: 32px; }
+.details-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 23px; }
+.details h2 { font-size: clamp(2rem, 4.3vw, 3.2rem); line-height: 1.06; letter-spacing: -.06em; }
+.details p { max-width: 44ch; color: var(--muted); line-height: 1.55; }
+.scenes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+.scenes figure { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.scenes img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center 37%; }
+.scenes figcaption { padding: 15px; font-size: .96rem; font-weight: 690; }
+
+.policy { padding-bottom: 72px; min-height: 70vh; }
+.policy .page-title { margin-bottom: 24px; }
+.draft {
+  width: min(100%, 72ch);
+  padding: 16px 19px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--panel);
+  color: var(--muted);
+  line-height: 1.5;
+}
+.draft strong { color: var(--accent); }
+.policy-copy { max-width: 69ch; }
+.policy-copy section { padding-block: 25px; border-bottom: 1px solid var(--line); }
+.policy-copy h2 { font-size: 1.35rem; margin-bottom: 8px; }
+.policy-copy p { color: var(--muted); line-height: 1.7; }
+.policy-copy a { color: var(--accent); text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .shell { width: calc(100% - 40px); }
+  .site-header { min-height: 65px; }
+  .page-title { margin-top: 34px; }
+  .feature { grid-template-columns: 1fr; border-radius: 16px; }
+  .feature-copy { min-height: auto; gap: 20px; }
+  .feature-copy h2 { font-size: clamp(2.65rem, 10vw, 5.2rem); }
+  .feature-art { min-height: clamp(210px, 60vw, 420px); }
+  .feature-art img { object-position: center 26%; }
+  .feature-art::after { background: none; }
+  .details { margin-block: 50px; }
+  .details-heading { display: grid; gap: 10px; }
+  .game-facts div { padding-inline: 13px; }
+  .game-facts dd { font-size: .88rem; }
+}
+
+@media (max-width: 480px) {
+  .site-header { gap: 12px; }
+  .site-header nav { gap: 11px; }
+  nav a { font-size: 13px; }
+  .brand { font-size: 13px; gap: 7px; }
+  .brand-icon { width: 23px; height: 23px; font-size: 14px; }
+  .scenes { grid-template-columns: 1fr; }
+  .site-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 12px; padding-block: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+}
