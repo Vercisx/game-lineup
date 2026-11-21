@@ -172,7 +172,7 @@ nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
 
 .policy { padding-bottom: 72px; min-height: 70vh; }
 .policy .page-title { margin-bottom: 24px; }
-.draft {
+.policy-identity {
   width: min(100%, 72ch);
   padding: 16px 19px;
   border-left: 3px solid var(--accent);
@@ -181,7 +181,7 @@ nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
   color: var(--muted);
   line-height: 1.5;
 }
-.draft strong { color: var(--accent); }
+.policy-identity strong { color: var(--accent); }
 .policy-copy { max-width: 69ch; }
 .policy-copy section { padding-block: 25px; border-bottom: 1px solid var(--line); }
 .policy-copy h2 { font-size: 1.35rem; margin-bottom: 8px; }
